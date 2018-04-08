@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form_validation</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="container">
+		<div class="alert" id="msg"></div>
+		<form id="regForm">
+			<div id="form-group">
+				<label>Name:</label>
+				<input type="text" name="name" class="form-control" id="name">
+			</div>
+			<div id="form-group">
+				<label>E-mail:</label>
+				<input type="text" name="email" class="form-control" id="email">
+			</div>
+			<div id="form-group">
+				<label>Password:</label>
+				<input type="text" name="password" class="form-control" id="password">
+			</div>
+			<div id="form-group">
+				<label>Confirm Password:</label>
+				<input type="text" name="passwordc" class="form-control" id="passwordc">
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button> 
+		</form>
+	</div>
+
+
+	<script type="text/javascript">
+		function register(e){
+			e.preventDefault();
+			//console.log('Submitted........');
+
+
+
+			var name=document.getElementById('name').value;
+			var email=document.getElementById('email').value;
+			var password=document.getElementById('password').value;
+			var passwordc=document.getElementById('passwordc').value;
+			var msg=document.getElementById('msg');
+
+			console.log(name, email,passwordc,password);
+
+			
+			if(name=='' || email=='' || passwordc=='' || password==''){
+				msg.className="alert alert-danger";
+				msg.innerHTML= "enter all the details carefully";
+				console.log(msg.innerHTML); 
+			}else{
+				var atpos=email.indexOf("@");
+				var dotpos=email.indexOf(".");
+				if (atpos<1 || dotpos<atpos+2 || dotpos+2>email.length) {
+					msg.className="alert alert-danger";
+					msg.innerHTML="enter correct email"
+
+				}else{
+
+				//sucess
+				msg.className="alert alert-success";
+				msg.innerHTML=name +'is register with '+ email;
+				}
+
+			}
+
+			//i can imporve many validation like password and passwordc should be equal, name length should be greater than 3 digits using name.length , emails should have index of @ etc. 
+			
+
+		}
+		document.getElementById('regForm').addEventListener('submit',register,false);
+		
+		
+	</script>
+
+
+
+</body>
+</html>

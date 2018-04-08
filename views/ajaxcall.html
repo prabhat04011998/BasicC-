@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		img{
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form id="myform">
+			<div class="form-group">
+				<label>Username</label>
+				<input  class="form-control" type="text" id="username">
+			</div>
+		</form>
+
+
+		<button type="button" onclick="getprofile()" class="text-centre">Show data</button>
+		<br>
+
+		<div id="profile"></div>
+	</div>
+	<br>
+	
+
+	<script>
+	
+	function getprofile(e) {
+	
+		console.log('fetching......')
+		var username=document.getElementById('username').value;
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	var user =JSON.parse(this.responseText);
+	      document.getElementById("profile").innerHTML = `<div class="panel panel-default">
+															     <div class="panle-heading">
+															     	<h3 class="panel-title">${user.login}</h3>
+															     </div>
+																 <div class="panel-body">
+																	  <div class="row">
+																		  <div class="col-md-3">
+																		  <img src="${user.avatar_url}">
+
+																		  </div>
+																		  <div class="col-md-9">
+																		  <span class="label label-primary">Followers: ${user.followers}</span>
+																		  	<span class="label label-primary">Following: ${user.following}</span>
+																		  	<ul class="list-group">
+																		  		<li class="list-group-item">repo created at: ${user.created_at}</li>
+																		  		<li class="list-group-item>repo updated at: ${user.updated_at}</li>
+																		  	</ul>
+																		  	<a href="${user.html_url}" class="btn btn-default" target="_blank">Visit Github</a>
+																		  </div>
+																    </div>
+																    
+																 </div>
+															</div>`;
+	    }
+	  };
+	  xhttp.open("GET", "https://api.github.com/users/"+username, true);
+	  xhttp.send();
+	  
+
+	}
+	</script>
+
+</body>
+</html>

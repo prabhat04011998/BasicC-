@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>basics</title>
+</head>
+<body>
+	<button onclick="getdate()">get date</button>
+	<h1 id="date"></h1>
+	<form id="myform">
+		<div>
+			<label>Name</label>
+			<input type="text" id="name">
+		</div>
+		<div>
+			<label>email</label>
+			<input type="text" id="email">
+		</div>
+		<input type="submit" value="submit">
+	</form>
+	<script>
+		function getdate(){
+			var d=new Date();
+			document.getElementById("date").innerHTML=d;
+
+
+		}
+		function submited(e){
+			e.preventDefault();
+			
+
+			var name=document.getElementById('name').value;
+			var email=document.getElementById('email').value;
+			console.log(name);
+			alert("name is"+name+" email is "+email)
+
+
+		}
+		document.getElementById('myform').addEventListener('submit',submited,false);
+		//onload and onblur there are so many events like this in it and prevent default is important keep in mind this
+	</script>
+
+</body>
+</html>
