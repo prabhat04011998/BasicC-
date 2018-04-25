@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form</title>
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+</head>
+
+<body>
+	
+	<h1  id="output"></h1>
+	<form id="myForm">
+		<div>
+			<label>Name:</label>
+			<input type="text" >
+		</div>
+		<div>
+			<label>email:</label>
+			<input type="text">
+		</div>
+		<div>
+			<label>contact:</label>
+			<input type="text">
+		</div>
+		<input type="submit" value="submit">
+	</form>
+	<script>
+		$(document).ready(function(){
+			$('#myForm input').focus(function(){
+				$(this).css('background', 'pink');
+				$(this).blur(function(){
+					$(this).css('background','none');
+
+
+				}); 
+			});
+			$('#myForm').submit(function(e){
+				e.preventDefault();
+				$('#output').text("Form Submitted with" );
+			});  
+			$('#myForm').keydown(function(){
+				$('#output').text('you are typing.......');
+				$(this).keyup(function(){
+					$('#output').text('');
+				})
+			})
+
+		});
+	</script>
+
+	
+	
+
+</body>
+</html>

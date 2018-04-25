@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jquery_events</title>
+	<script src="/home/devil/prabhat04011998.github.io/js/jquery-3.3.1.min.js"></script>
+	<style>
+		#square{
+			width: 100px;
+			height:100px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<p class="first">this is paragraph</p>
+	<p>this is paragraph second</p>
+	<button class="btn">Click</button>
+	<br><br>
+	<div id="square"></div>
+	<br><br>
+	<div id="output"></div>
+
+
+	<script>
+		$(document).ready(function(){
+			/*alert("success");
+			$('p').hide();
+			$('p.first').hide();
+			
+			$('.btn').click(function(){
+				//alert('you clicked');
+				$('p').toggle();
+
+			});;
+			
+
+			$('.btn').on('click',function(){
+				alert('you clicked.')
+
+			});
+			
+			$('.btn').dblclick(function(){
+				
+				$('p').toggle();
+
+			});
+			
+			$('.btn').click(function(){
+				 
+				$('p').toggle();
+
+			});
+			
+			$('#square').hover(function(){
+				$(this).text('hovering');
+			},function(){
+				$(this).text('');
+			});
+
+			*/ 
+			//this hover effect can be obtain by mouseenter and mouseout
+			$('#square').mousemove(function(event){
+				var msg="mouse position is -";
+				msg+= event.pageX +" "+ event.pageY;
+				$('#output').html("<div>"+msg+"</div>")
+			})
+
+		});
+
+		 
+	</script>
+
+</body>
+</html>

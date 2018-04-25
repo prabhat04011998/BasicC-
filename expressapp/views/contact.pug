@@ -1,0 +1,26 @@
+include includes/head.pug
+
+h1 Contact
+
+
+
+form
+  .form-group
+    label(for='exampleInputEmail1') Email address
+    input#exampleInputEmail1.form-control(type='email', placeholder='Email')
+
+
+  .form-group
+    label(for='exampleInputPassword1') Password
+    input#exampleInputPassword1.form-control(type='password', placeholder='Password')
+
+  .form-group
+    label(for='exampleInputFile') File input
+    input#exampleInputFile(type='file')
+    p.help-block Example block-level help text here.
+
+  button.btn.btn-default(type='submit') Submit
+
+
+
+include includes/footer.pug

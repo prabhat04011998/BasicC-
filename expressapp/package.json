@@ -1,0 +1,17 @@
+{
+  "name": "expressapp",
+  "version": "1.0.0",
+  "description": "simple express application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "prabhat",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "ejs": "^2.5.8",
+    "express": "*",
+    "pug": "^2.0.3"
+  }
+}
