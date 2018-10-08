@@ -1,4 +1,0 @@
-<p>hello prabhat,
-
-you are sucessfull to learn ajax call.
-</p>
