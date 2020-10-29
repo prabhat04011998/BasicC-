@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;cin>>n;int array[n];
+    for(int i=0;i<n;i++){
+        cin>>array[i];
+    }
+    int profit=0,buy=0,sell=0;
+    for(int i=0;i<n;i++){
+        for(int j=i;j<n;j++){
+            if(array[j]-array[i]>profit){
+                profit=array[j]-array[i];
+                buy=i;
+                sell=j;
+            }
+        }
+    }
+    // cout<<"buy "<<buy<<" sell "<<sell<<endl;
+    cout<<array[sell]-array[buy];
+    return 0;
+}
