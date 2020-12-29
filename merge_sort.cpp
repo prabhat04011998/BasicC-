@@ -1,10 +1,6 @@
 
 
-edit
 
-play_arrow
-
-brightness_4
 // C++ program for Merge Sort
 #include <iostream>
 #include<bits/stdc++.h>
@@ -103,3 +99,5 @@ int main()
     printArray(arr, arr_size);
     return 0;
 }
+
+//merge sort code author- prabhat sharma
