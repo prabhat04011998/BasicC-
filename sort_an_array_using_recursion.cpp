@@ -1,38 +1,34 @@
 #include<bits/stdc++.h>
 using namespace std;
-void inplace(int arr[],int n){
-    if(n==0){
-        return ;
+void insert(vector<int> &vec,int a){
+    if(vec.size()==0 || vec[vec.size()-1]<a){
+        vec.push_back(a);
+        return;
     }
-    if(arr[n-1]>arr[n]){
-        swap(arr[n-1],arr[n]);
-        inplace(arr,n-1);
-    }
-    return ;
-    
+    int last=vec[vec.size()-1];
+    vec.pop_back();
+    insert(vec,a);
+    vec.push_back(last);
 }
-void Psort(int arr[],int n){
-    if(n<0){
+void sorting(vector<int> &vec){
+    if(vec.size()==0){
         return ;
     }
-    Psort(arr,n-1);
-    // for(int i=n;i>=0;i--){
-    //     if(arr[i-1]>arr[i]){
-    //         swap(arr[i-1],arr[i]);
-    //     }
-    // }
-    inplace(arr,n);
+    int a=vec[vec.size()-1];
+    vec.pop_back();
+    sorting(vec);
+    insert(vec,a);
 }
 int main(){
     int n;cin>>n;
-    int arr[n];
+    vector<int> vec;
     for(int i=0;i<n;i++){
-        cin>>arr[i];
+        int a;cin>>a;vec.push_back(a);
+        
     }
-    Psort(arr,n-1);
+    sorting(vec);
     for(int i=0;i<n;i++){
-        cout<<arr[i]<<" ";
+        cout<<vec[i]<<" ";
     }
-    
     return 0;
 }
