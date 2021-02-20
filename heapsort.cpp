@@ -16,20 +16,21 @@ void heapify(int a[],int n,int index){
     if(right<n && a[largest]<a[right]){
         largest=right;
     }
-    if(largest!=index){
+    if(largest!=index){//basically a termination condition think about it after dry run with an example,,----------this condition will be true if any of the above condition will not excute
         swap(a[index],a[largest]);
     heapify(a,n,largest);
         
     }
     
 }
-
+//function only for sorting
 void heapsort(int a[],int n){
     for(int i=n-1;i>=0;i--){
-        swap(a[i],a[0]);
-        heapify(a,i,0);
+        swap(a[i],a[0]);//swapping the last element with first basically with the highest element and heapify the heap again
+        heapify(a,i,0);//heapifying the heap again.
     }
 }
+//funtion to build a heap 
 void buildheap(int a[],int n){
     int startindex=(n/2)-1;
     for(int i=startindex;i>=0;i--){
