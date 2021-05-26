@@ -8,22 +8,24 @@ void print(int **edges,int v,bool* visited){
     while(!q.empty()){
         int start=q.front();
         q.pop();
-        visited[start]=true;
         cout<<start<<endl;
         for(int i=0;i<v;i++){
             if(i==start){
                 continue;
             }
-            if(edges[start][i]==true){
-                if(visited[i]){
-                    continue;
-                }
-                visited[i]=true;
-                q.push(i);
+            if(edges[start][i]==true && !visited[i]){
+               
+                    q.push(i);
+                    visited[i]=true;
+                
+                
             }
             
         }
+        
+        // cout<<start<<endl;
     }
+    delete [] visited;
 }
 
 int main()
@@ -49,6 +51,7 @@ int main()
         visited[i]=false;
     }
     q.push(0);
+    visited[0]=true;
     print(edges,v,visited);
 
     return 0;
