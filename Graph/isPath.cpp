@@ -1,14 +1,9 @@
-/******************************************************************************
 
-Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
-C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
-Code, Compile, Run and Debug online from anywhere in world.
-
-*******************************************************************************/
 #include <bits/stdc++.h>
 using namespace std;
 int answer=0;
+
+//to find out path we can use either bfs or dfs any , it's just if we got that vertex in bfs or dfs traversal it means there is a path available.
 int DFS(int **edges,int v,int sv,bool * visited,int tofind){
    
     // cout<<sv<<endl;
