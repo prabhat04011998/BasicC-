@@ -1,3 +1,8 @@
+/*
+time complexity= Elog(E)+ E*V
+
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 class edge{
