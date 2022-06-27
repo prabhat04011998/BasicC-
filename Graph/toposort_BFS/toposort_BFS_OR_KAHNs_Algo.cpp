@@ -1,3 +1,12 @@
+Algorithm:
+
+1. Calculate the indegree of all the vertices
+2. Maintain a queue and push the nodes having the indegree zero(0)
+3. then apply bfs on a node with indegree zero and reduce the indegree of all the adjacent nodes by 1 
+4. Repat above 2 steps till no node left
+
+
+
 // { Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
